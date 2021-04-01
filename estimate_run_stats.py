@@ -1,9 +1,8 @@
 import pandas as pd
-import numpy as np
 import sys
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
+from collections import Counter
 
 # method to read the data and cluster it into the different routes
 def process_data(file):
@@ -17,7 +16,6 @@ def process_data(file):
     X = data.to_numpy()
 
     """
-        Create a K-means clusterer using sci-kit learn KMeans object 
         Assumptions: the number of clusters equal number of known routes. 
         used the default n_init = 10, which wll run the kmeans clusterer 10 times.
         k-means implementation using scikit-learn should stop early
@@ -28,6 +26,7 @@ def process_data(file):
     # predict cluster each value in X belongs to
     y = clusterer.fit_predict(X)
     # plot a visual of the clusters
+    print("\n The number of times each route is ran is: ", Counter(clusterer.labels_))
     plot_route_data(clusterer, X, y)
 
 # method to view the different clusters and centroid points

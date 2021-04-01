@@ -24,3 +24,7 @@ The script for the second solution is `estimate_run_stats.py`, which expects to 
 ```
 A scatter plot (similar to the diagram below) showing the cluster points of the 3 routes is expected.
 ![Example of expected plot](3cluster_n_init-10.png) Figure 1: Example of expected plots. It shows how the points in the running observation fit into the 3 potential routes known.
+
+Question 2: Do I tend to run on each route about as often, or do I have a favorite route?
+
+Answer 2: The number of times each route is ran is about: `30`,`31`, and `39`. This means that you run two routes about as often, but one route a little bit more (about 0.09% more).
