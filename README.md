@@ -18,3 +18,9 @@ Once the service has started, run a POST request in the terminal or using an API
 ```
 
 ## TASK 2
+The script for the second solution is `estimate_run_stats.py`, which expects to a csv file for the data for be passed in at run time:
+```
+    python3 estimate_run_stats.py running_observations.csv
+```
+A scatter plot (similar to the diagram below) showing the cluster points of the 3 routes is expected.
+![Example of expected plot](3cluster_n_init-10.png) Figure 1: Example of expected plots. It shows how the points in the running observation fit into the 3 potential routes known.

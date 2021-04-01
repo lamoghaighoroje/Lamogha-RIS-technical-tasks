@@ -25,7 +25,7 @@ def process_data(file):
         Used the default max_iter value
     """
     clusterer = KMeans(n_clusters=3)
-    # put each data point into a cluster
+    # predict cluster each value in X belongs to
     y = clusterer.fit_predict(X)
     # plot a visual of the clusters
     plot_route_data(clusterer, X, y)
