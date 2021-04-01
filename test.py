@@ -23,7 +23,7 @@ class ConnectedComponentTestCase(unittest.TestCase):
         self.assertEqual(cc, 3)
                     
     # def test_connected_components(self):
-    #     response = self.app.post('/connected_components', data=json.dumps({"data":"test"}), headers={"Content-Type":"application/json"})
+    #     response = self.app.post('/connected_components', data=json.dumps({"1":[]}), headers={"Content-Type":"application/json"})
     #     self.assertEqual(response.get_data(as_text=True), "")
     #     self.assertEqual(response.status_code, 200)
 
