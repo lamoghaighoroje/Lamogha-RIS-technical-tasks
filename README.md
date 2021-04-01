@@ -2,8 +2,9 @@
 # PRE-REQUISITES
 1. An installation of python is required on your machine. 
 2. With python installed, install the required packages in requirements file using:
+```
     pip3 install -r requirements.txt 
-
+```
 # TASK 1
 ## RUN SERVICE LOCALLY 
 Start the service by running in a terminal:
