@@ -26,8 +26,8 @@ def process_data(file):
     # predict cluster each value in X belongs to
     y = clusterer.fit_predict(X)
     # plot a visual of the clusters
-    print("\n The number of times each route is ran is: ", Counter(clusterer.labels_))
     plot_route_data(clusterer, X, y)
+    print("\n The number of times each route is ran is: ", Counter(clusterer.labels_))
 
 # method to view the different clusters and centroid points
 def plot_route_data(clusterer, X, y_km):
