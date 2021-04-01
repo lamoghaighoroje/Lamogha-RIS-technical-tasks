@@ -25,6 +25,14 @@ The script for the second solution is `estimate_run_stats.py`, which expects to 
 A scatter plot (similar to the diagram below) showing the cluster points of the 3 routes is expected.
 ![Example of expected plot](3cluster_n_init-10.png) Figure 1: Example of expected plots. It shows how the points in the running observation fit into the 3 potential routes known.
 
+**Question 1**: Based on this data, can you work out the lengths (in meters) of each of the 3 routes, and how long it takes me on average (in minutes) to run each one?
+
+**Answer 1**: 
+The average time per route is: [48.24516129032258, 55.64, 40.941538461538464] minutes
+
+The Average distance per route is: [7340.0, 7006.833333333333, 6428.205128205128] meters
+
 **Question 2**: Do I tend to run on each route about as often, or do I have a favorite route?
 
-**Answer 2**: The number of times each route is ran is about: `30`,`31`, and `39`. This means that you run two routes about as often, but one route a little bit more (about 0.09% more).
+**Answer 2**: The number of times each route is ran is about: `30`,`31`, and `39`. 
+This means that you run two routes about as often, but one route a little bit more (about 0.09% more).

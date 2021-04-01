@@ -27,7 +27,14 @@ def process_data(file):
     y = clusterer.fit_predict(X)
     # plot a visual of the clusters
     plot_route_data(clusterer, X, y)
-    print("\n The number of times each route is ran is: ", Counter(clusterer.labels_))
+    
+    # get the centroids for each cluster
+    # convert the duration to minutes
+    average_time_per_route = [i/60 for i in clusterer.cluster_centers_[:, 0]]
+    average_distance_per_route = [i for i in clusterer.cluster_centers_[:, 1]]
+    print('\nAverage time per route is: {} minutes'.format(average_time_per_route))
+    print('\nAverage distance per route is: {} meters'.format(average_distance_per_route))
+    print("\nThe number of times each route is ran is: ", Counter(clusterer.labels_))
 
 # method to view the different clusters and centroid points
 def plot_route_data(clusterer, X, y_km):
@@ -71,4 +78,4 @@ if __name__ == '__main__':
         file = sys.argv[1]
         process_data(file)
     except IndexError:
-        print('Usage: %s DATA_FILE' % sys.argv[0])
+        print('Usage: python3 %s DATA_FILE' % sys.argv[0])
