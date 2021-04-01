@@ -18,7 +18,7 @@ Once the service has started, run a POST request in the terminal or using an API
 ```
 
 ## TASK 2
-The script for the second solution is `estimate_run_stats.py`, which expects to a csv file for the data for be passed in at run time:
+The script for the second solution is `estimate_run_stats.py`, which expects a csv file for the data to be passed in at run time:
 ```
     python3 estimate_run_stats.py running_observations.csv
 ```
