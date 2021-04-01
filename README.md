@@ -22,7 +22,7 @@ The script for the second solution is `estimate_run_stats.py`, which expects a c
 ```
     python3 estimate_run_stats.py running_observations.csv
 ```
-A scatter plot (similar to the diagram below) showing the cluster points of the 3 routes is expected.
+A scatter plot (similar to the diagram below) showing the cluster points of the 3 routes is expected after running the script.
 ![Example of expected plot](3cluster_n_init-10.png) Figure 1: Example of expected plots. It shows how the points in the running observation fit into the 3 potential routes known.
 
 **Question 1**: Based on this data, can you work out the lengths (in meters) of each of the 3 routes, and how long it takes me on average (in minutes) to run each one?
