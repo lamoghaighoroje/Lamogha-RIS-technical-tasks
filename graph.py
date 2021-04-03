@@ -1,29 +1,30 @@
-# Python program to print connected
+# Python program for connected
 # components in an undirected graph
-import json
 import sys
 
 class Graph:
  
     # init function to declare class variables
-    # Assumption here is that data should not be an empty dictionary
+    # Assumption here is that data is a non empty dictionary
     def __init__(self, data:dict):
+        self.data = data
         self.graph_nodes = list(data.keys())
-        # Add the value of first node to the length of the keys we have, 
-        # if not 0 it will ensure indexes are properly bounded
-        self.V = len(data.keys()) + int(next(iter(data)))
-        self.adj = [[] for i in range(self.V)]
+        # create adjacency list for every node
+        self.adj = [[] for i in self.graph_nodes]
 
-    def DFSUtil(self, v, visited):
- 
+    # Recursive depth first search method
+    def DFSUtil(self, idx, visited):
         # Mark the current node as visited
-        visited[v] = True
- 
-        # Recur for all the vertices
-        # adjacent to this vertex
-        for i in self.adj[v]:
-            if (not visited[i]):
-                self.DFSUtil(i, visited)
+        visited[idx] = True
+        # Recur for all the nodes adjacent to this node
+        for i in self.adj[idx]:
+            try:
+                # Get the index of the adjacent node from the graph nodes
+                new_idx = self.graph_nodes.index(str(i))
+                if (not visited[new_idx]):
+                    self.DFSUtil(new_idx,visited)
+            except ValueError:
+                pass
 
     """ Method to add an undirected edge.
     Assumption here is that this is used in a loop with an adjacency list,
@@ -34,16 +35,21 @@ class Graph:
     """ Function to return the number of
     connected components in an undirected graph """
     def NumberOfconnectedComponents(self):
+        # Add graph edges, 'keys' represent the nodes and 'values' the adjacent nodes
+        # Assumption: every item is a string of an integer
+        for key, value in self.data.items():
+            if value != []:
+                for item in value:
+                    self.addEdge(self.graph_nodes.index(key),int(item)) 
+        
+        # Mark all the nodes as not visited
+        visited = [False for i in self.graph_nodes]
          
-        # Mark all the vertices as not visited
-        visited = [False for i in range(self.V)]
-         
-        # To store the number of connected
-        # components
+        # To count the number of connected components
         count = 0
-        for v in range(self.V):
-            if (str(v) in self.graph_nodes and visited[v] == False):
-                self.DFSUtil(v, visited)
+        for idx,v in enumerate(self.graph_nodes):
+            if (visited[idx] == False):
+                self.DFSUtil(idx,visited)
                 count += 1         
         return count
  

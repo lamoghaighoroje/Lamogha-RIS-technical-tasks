@@ -1,8 +1,7 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask
 from flask import request as f_request
 import json
-import subprocess
-import time
+from datetime import datetime
 from graph import Graph
 
 app = Flask(__name__)
@@ -21,24 +20,17 @@ def connected_components():
         # check if the request data is an empty json
         empty_body = not body
         if empty_body != True:
-            # create instance of our graph class using the request data
-            graph = Graph(body)
-            # get every key and value pair in the request data. Keys represent the nodes
-            for key, value in body.items():
-                # if the value is not an empty list, the values represent adjacent nodes of a given node
-                if value != []:
-                    for item in value:
-                        # add an edge from a node to its adjacent node
-                        graph.addEdge(int(key),int(item))             
+            # create instance of our graph class and send the graph data
+            graph = Graph(body)   
             # get the number of connected components from the graph
             response = str(graph.NumberOfconnectedComponents())
         else:
-            response = "Your input is an empty json"
+            response = "Your input is empty."
     return response
 
 if __name__ == '__main__':
     print('\n\nFinding connected components program')
-    print('Started at: {}\n\n'.format(time.time()))
+    print(f'Started at: {datetime.now().strftime("%d/%m/%Y %H:%M:%S")}\n\n')
     print('ENDPOINTS:')
     print(app.url_map)
     app.run(debug=True, port=5000, host='localhost')
